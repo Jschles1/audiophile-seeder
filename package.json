@@ -1,0 +1,16 @@
+{
+  "name": "audiophile-seeder",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@prisma/client": "5.7.1",
+    "prisma": "^5.7.1",
+    "sharp": "^0.33.1"
+  }
+}
