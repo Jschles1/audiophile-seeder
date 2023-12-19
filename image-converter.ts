@@ -75,25 +75,6 @@ async function convertImages() {
         desktopThirdImage,
       ];
 
-      // for (let addOn of productAddOns) {
-      //   const {
-      //     mobile: mobileAddOnImage,
-      //     desktop: desktopAddOnImage,
-      //     tablet: tabletAddOnImage,
-      //   } = addOn.image;
-
-      //   for (let image of [
-      //     mobileAddOnImage,
-      //     tabletAddOnImage,
-      //     desktopAddOnImage,
-      //   ]) {
-      //     await convertToJpeg(
-      //       image,
-      //       image.split(".jpg")[0] + "_converted.jpeg"
-      //     );
-      //   }
-      // }
-
       for (let relatedProduct of relatedProducts) {
         const {
           mobile: mobileRelatedProductImage,
