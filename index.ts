@@ -82,6 +82,10 @@ async function main() {
         imageGallery.third.desktop = urls[2];
       });
 
+      imageGallery.first = imageGallery.first;
+      imageGallery.second = imageGallery.second;
+      imageGallery.third = imageGallery.third;
+
       productToInsert.imageGallery = JSON.stringify(imageGallery);
 
       for (let relatedProduct of relatedProducts) {
@@ -127,6 +131,7 @@ async function main() {
 
       // Insert product into database
       console.log("Inserting " + productToInsert.name + "...");
+      console.log("Image gallery: ", productToInsert.imageGallery);
       const insertionResult = await prismadb.product.create({
         data: {
           ...productToInsert,
@@ -169,6 +174,15 @@ async function main() {
   } catch (error) {
     console.error(error);
   }
+}
+
+async function drop() {
+  await prismadb.$connect();
+  await prismadb.relatedProduct.deleteMany({});
+  await prismadb.productAddOn.deleteMany({});
+  await prismadb.product.deleteMany({});
+  await prismadb.category.deleteMany({});
+  await prismadb.$disconnect();
 }
 
 // Fix for https://github.com/prisma/prisma/issues/21108
